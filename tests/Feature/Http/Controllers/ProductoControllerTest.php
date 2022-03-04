@@ -2,9 +2,10 @@
 
 namespace Tests\Feature\Http\Controllers;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use App\Models\User;
+use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ProductoControllerTest extends TestCase
 {
@@ -20,6 +21,11 @@ class ProductoControllerTest extends TestCase
     {
         $this->withoutExceptionHandling();
        
+
+        $user = User::factory()->create();
+
+        $this->actingAs($user);
+        
         $response = $this->post('/productos', [
             'nombre_producto' => 'Producto de prueba',
             'descripcion' => 'Descrip de prueba',
