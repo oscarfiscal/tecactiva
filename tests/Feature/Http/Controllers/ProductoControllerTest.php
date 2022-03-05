@@ -4,6 +4,7 @@ namespace Tests\Feature\Http\Controllers;
 
 use Tests\TestCase;
 use App\Models\User;
+use App\Models\Producto;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -43,4 +44,18 @@ class ProductoControllerTest extends TestCase
         ]);     
     
     }
+    public function test_product_index()
+    {
+               $this->withoutExceptionHandling();
+                  
+               $user = User::factory()->create();
+               $this->actingAs($user);
+           
+                Producto::factory()->create();
+                   
+                $response=$this->get('productos')->assertStatus(200);
+                $producto=Producto::all(); 
+                $response->assertOk();
+
+                       }
 }

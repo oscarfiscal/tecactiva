@@ -17,7 +17,11 @@ class ProductoFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'nombre_producto' => $this->faker->name,
+            'descripcion' => $this->faker->text,
+            'precio' => $this->faker->randomFloat(2, 0, 100),
+            'estado' => $this->faker->randomElement(['1', '0']),
+            'fecha_publicacion' => $this->faker->dateTimeBetween('-1 years', '+1 years'),
         ];
     }
 }
