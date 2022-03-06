@@ -38,9 +38,10 @@ class Productos extends Command
      */
     public function handle()
     {
+        $precio = rand(100,500);
         Producto::create(['nombre_producto' => now(),
                             'descripcion' => 'nuevo producto',
-                            'precio' => '100',
+                            'precio' => $precio,
                             'estado' => '2',
                             'fecha_publicacion' => now()]);
     }
