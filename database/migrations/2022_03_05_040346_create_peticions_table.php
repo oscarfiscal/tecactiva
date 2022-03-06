@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('peticions', function (Blueprint $table) {
-            $table->id('id_registro');
+            $table->id();
             $table->dateTimeTz('fecha');
         });
     }
