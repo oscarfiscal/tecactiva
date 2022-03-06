@@ -17,8 +17,9 @@ class Peticion
      */
     public function handle(Request $request, Closure $next)
     {
+        $id = rand();
         Pe::create([
-            'id'=>1,
+            'id'=>$id,
             'fecha' => now()]);
 
         return $next($request);
