@@ -17,7 +17,9 @@ class Peticion
      */
     public function handle(Request $request, Closure $next)
     {
-        Pe::create(['fecha' => now()]);
+        Pe::create([
+            'id' => $request->id,
+            'fecha' => now()]);
 
         return $next($request);
     }
